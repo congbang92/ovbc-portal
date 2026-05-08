@@ -1,82 +1,284 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OVBC Company Portal</title>
 
-<meta charset="UTF-8">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
 
-<title>OVBC SMART PORTAL</title>
+    body{
+      background:#f4f6f9;
+      color:#333;
+    }
 
-<style>
+    .header{
+      background:linear-gradient(135deg,#c40000,#ff3b3b);
+      color:white;
+      padding:25px 40px;
+      box-shadow:0 3px 10px rgba(0,0,0,0.15);
+    }
 
-body{
-    font-family:Segoe UI;
-    background:#f1f5f9;
-    margin:0;
-    padding:30px;
-}
+    .header h1{
+      font-size:32px;
+      margin-bottom:5px;
+    }
 
-.title{
-    font-size:36px;
-    font-weight:bold;
-    margin-bottom:30px;
-}
+    .header p{
+      opacity:0.9;
+    }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
+    .container{
+      padding:40px;
+    }
 
-.card{
-    background:white;
-    border-radius:15px;
-    padding:30px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    transition:0.3s;
-    cursor:pointer;
-}
+    .section-title{
+      margin-bottom:25px;
+      font-size:24px;
+      font-weight:600;
+      color:#c40000;
+    }
 
-.card:hover{
-    transform:translateY(-5px);
-}
+    .department-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
 
-</style>
+    .department-card{
+      background:white;
+      border-radius:18px;
+      padding:25px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+      transition:0.25s;
+      border-left:6px solid #d40000;
+    }
 
+    .department-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .dept-header{
+      display:flex;
+      align-items:center;
+      margin-bottom:20px;
+    }
+
+    .dept-icon{
+      width:50px;
+      height:50px;
+      border-radius:12px;
+      background:#e60000;
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:bold;
+      font-size:18px;
+      margin-right:15px;
+    }
+
+    .dept-name{
+      font-size:22px;
+      font-weight:600;
+    }
+
+    .folder-list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .folder-link{
+      text-decoration:none;
+      padding:14px 18px;
+      border-radius:12px;
+      background:#f5f5f5;
+      color:#333;
+      font-weight:500;
+      transition:0.2s;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .folder-link:hover{
+      background:#d40000;
+      color:white;
+    }
+
+    .folder-type{
+      font-size:13px;
+      opacity:0.8;
+    }
+
+    .footer{
+      text-align:center;
+      padding:25px;
+      color:#777;
+      font-size:14px;
+    }
+
+    @media(max-width:768px){
+      .container{
+        padding:20px;
+      }
+
+      .header{
+        padding:20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="title">
-OVBC SMART PORTAL
-</div>
+  <div class="header">
+    <h1>OVBC COMPANY PORTAL</h1>
+    <p>Department File Server Access Portal</p>
+  </div>
 
-<div class="grid">
+  <div class="container">
 
-<div class="card">
-💰 Finance
-</div>
+    <div class="section-title">
+      Department Access
+    </div>
 
-<div class="card">
-🏭 Production
-</div>
+    <div class="department-grid">
 
-<div class="card">
-🖥 IT
-</div>
+      <!-- FINANCE -->
+      <div class="department-card">
+        <div class="dept-header">
+          <div class="dept-icon">01</div>
+          <div class="dept-name">Finance</div>
+        </div>
 
-<div class="card">
-🧪 QC
-</div>
+        <div class="folder-list">
+          <a class="folder-link"
+             href="https://yourcompany.sharepoint.com/sites/FIN_Internal"
+             target="_blank">
+             📁 Internal
+             <span class="folder-type">Staff Only</span>
+          </a>
 
-<div class="card">
-📦 Planning
-</div>
+          <a class="folder-link"
+             href="https://yourcompany.sharepoint.com/sites/FIN_External"
+             target="_blank">
+             🌐 External
+             <span class="folder-type">Customer / Vendor</span>
+          </a>
+        </div>
+      </div>
 
-<div class="card">
-📄 SOP
-</div>
+      <!-- PRODUCTION -->
+      <div class="department-card">
+        <div class="dept-header">
+          <div class="dept-icon">02</div>
+          <div class="dept-name">Production</div>
+        </div>
 
-</div>
+        <div class="folder-list">
+          <a class="folder-link"
+             href="https://yourcompany.sharepoint.com/sites/PRO_Internal"
+             target="_blank">
+             📁 Internal
+             <span class="folder-type">Staff Only</span>
+          </a>
+
+          <a class="folder-link"
+             href="https://yourcompany.sharepoint.com/sites/PRO_External"
+             target="_blank">
+             🌐 External
+             <span class="folder-type">Customer / Vendor</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- PLANNING -->
+      <div class="department-card">
+        <div class="dept-header">
+          <div class="dept-icon">03</div>
+          <div class="dept-name">Planning</div>
+        </div>
+
+        <div class="folder-list">
+          <a class="folder-link"
+             href="https://yourcompany.sharepoint.com/sites/PLA_Internal"
+             target="_blank">
+             📁 Internal
+             <span class="folder-type">Staff Only</span>
+          </a>
+
+          <a class="folder-link"
+             href="https://yourcompany.sharepoint.com/sites/PLA_External"
+             target="_blank">
+             🌐 External
+             <span class="folder-type">Customer / Vendor</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- IT -->
+      <div class="department-card">
+        <div class="dept-header">
+          <div class="dept-icon">04</div>
+          <div class="dept-name">IT</div>
+        </div>
+
+        <div class="folder-list">
+          <a class="folder-link"
+             href="https://yourcompany.sharepoint.com/sites/IT_Internal"
+             target="_blank">
+             📁 Internal
+             <span class="folder-type">Staff Only</span>
+          </a>
+
+          <a class="folder-link"
+             href="https://yourcompany.sharepoint.com/sites/IT_External"
+             target="_blank">
+             🌐 External
+             <span class="folder-type">Customer / Vendor</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- QC -->
+      <div class="department-card">
+        <div class="dept-header">
+          <div class="dept-icon">05</div>
+          <div class="dept-name">QC</div>
+        </div>
+
+        <div class="folder-list">
+          <a class="folder-link"
+             href="https://yourcompany.sharepoint.com/sites/QC_Internal"
+             target="_blank">
+             📁 Internal
+             <span class="folder-type">Staff Only</span>
+          </a>
+
+          <a class="folder-link"
+             href="https://yourcompany.sharepoint.com/sites/QC_External"
+             target="_blank">
+             🌐 External
+             <span class="folder-type">Customer / Vendor</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 OVBC Company Portal | SharePoint Integrated
+  </div>
 
 </body>
 </html>
