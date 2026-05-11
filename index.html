@@ -20,9 +20,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     font-family:"Segoe UI",sans-serif;
 }
 
-/* AUTO SHAREPOINT FIT */
+/* AUTO HEIGHT */
 html,
-body,
+body{
+    height:auto !important;
+    min-height:auto !important;
+    overflow:auto !important;
+    background:transparent !important;
+}
+
+/* SHAREPOINT FIX */
 #spPageCanvasContent,
 .CanvasComponent,
 .CanvasZone,
@@ -31,9 +38,16 @@ body,
 [data-automation-id="CanvasZone"],
 [data-automation-id="CanvasSection"]{
     background:transparent !important;
-    min-height:auto !important;
     height:auto !important;
+    min-height:auto !important;
     overflow:visible !important;
+    padding-bottom:0 !important;
+    margin-bottom:0 !important;
+}
+
+/* REMOVE EMPTY SPACE */
+div[data-automation-id="CanvasZone"]{
+    min-height:unset !important;
 }
 
 /* PAGE */
@@ -50,15 +64,23 @@ body{
     display:flex;
     flex-direction:column;
     align-items:center;
+    height:auto !important;
+    min-height:auto !important;
 }
 
 /* TITLE */
 .portal-title{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
     font-size:34px;
     font-weight:700;
     color:#b8860b;
+
     margin-bottom:22px;
-    text-align:center;
     letter-spacing:0.5px;
 }
 
@@ -99,11 +121,14 @@ body{
     border-radius:12px;
     background:linear-gradient(135deg,#c69214,#ffd54f);
     color:#fff;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     font-size:16px;
     margin-right:10px;
+
     box-shadow:0 2px 8px rgba(212,160,23,0.25);
 }
 
@@ -127,11 +152,14 @@ body{
     background:#fffaf0;
     border:1px solid #f0dfb0;
     color:#333;
+
     padding:8px 10px;
     border-radius:10px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     font-size:13px;
     transition:0.2s;
 }
@@ -176,16 +204,9 @@ body{
 <div class="portal-container">
 
     <!-- TITLE -->
- <div class="portal-title"
-     style="
-        text-align:center;
-        width:100%;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-     ">
-    Company File Portal
-</div>
+    <div class="portal-title">
+        Company File Portal
+    </div>
 
     <!-- GRID -->
     <div class="department-grid">
