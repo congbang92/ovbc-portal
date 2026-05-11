@@ -20,34 +20,42 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     font-family:"Segoe UI",sans-serif;
 }
 
-/* AUTO HEIGHT */
+/* FORCE SHAREPOINT AUTO HEIGHT */
 html,
-body{
-    height:auto !important;
-    min-height:auto !important;
-    overflow:auto !important;
-    background:transparent !important;
-}
-
-/* SHAREPOINT FIX */
+body,
 #spPageCanvasContent,
-.CanvasComponent,
+.CanvasLayout,
 .CanvasZone,
+.CanvasComponent,
 .ControlZone,
+.mainContent,
 .spAppAndPropertyPanelContainer,
 [data-automation-id="CanvasZone"],
 [data-automation-id="CanvasSection"]{
-    background:transparent !important;
+    min-height:unset !important;
     height:auto !important;
-    min-height:auto !important;
-    overflow:visible !important;
+    max-height:none !important;
     padding-bottom:0 !important;
     margin-bottom:0 !important;
+    background:transparent !important;
 }
 
-/* REMOVE EMPTY SPACE */
+/* REMOVE FULL SCREEN HEIGHT */
+body,
+html{
+    overflow-x:hidden !important;
+    overflow-y:hidden !important;
+}
+
+/* IMPORTANT */
+.CanvasZone{
+    display:inline-block !important;
+    width:100% !important;
+}
+
+/* REMOVE BIG GRAY AREA */
 div[data-automation-id="CanvasZone"]{
-    min-height:unset !important;
+    min-height:0 !important;
 }
 
 /* PAGE */
@@ -64,8 +72,6 @@ body{
     display:flex;
     flex-direction:column;
     align-items:center;
-    height:auto !important;
-    min-height:auto !important;
 }
 
 /* TITLE */
@@ -74,6 +80,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
 
     font-size:34px;
@@ -98,6 +105,7 @@ body{
     border-radius:16px;
     padding:14px;
     border-left:4px solid #d4a017;
+
     box-shadow:0 2px 8px rgba(0,0,0,0.06);
     transition:0.2s ease;
 }
@@ -118,8 +126,11 @@ body{
 .dept-icon{
     width:42px;
     height:42px;
+
     border-radius:12px;
+
     background:linear-gradient(135deg,#c69214,#ffd54f);
+
     color:#fff;
 
     display:flex;
@@ -139,7 +150,7 @@ body{
     color:#333;
 }
 
-/* FOLDER LIST */
+/* FOLDER */
 .folder-list{
     display:flex;
     flex-direction:column;
@@ -149,8 +160,10 @@ body{
 /* BUTTON */
 .folder-link{
     text-decoration:none;
+
     background:#fffaf0;
     border:1px solid #f0dfb0;
+
     color:#333;
 
     padding:8px 10px;
@@ -161,6 +174,7 @@ body{
     align-items:center;
 
     font-size:13px;
+
     transition:0.2s;
 }
 
