@@ -1,278 +1,355 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OVBC Company Portal</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: "Segoe UI", Arial, sans-serif;
-    }
+<title>OVBC Company Portal</title>
 
-    body{
-      background:#f4f6f9;
-      color:#333;
-    }
+<!-- FONT AWESOME -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-    .header{
-      background:linear-gradient(135deg,#c40000,#ff3b3b);
-      color:white;
-      padding:25px 40px;
-      box-shadow:0 3px 10px rgba(0,0,0,0.15);
-    }
+<style>
 
-    .header h1{
-      font-size:32px;
-      margin-bottom:5px;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
 
-    .header p{
-      opacity:0.9;
-    }
+body{
+    background:#faf8f2;
+    color:#333;
+}
+
+/* MAIN */
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:10px 20px 20px;
+}
+
+/* TITLE */
+.section-title{
+    font-size:22px;
+    font-weight:700;
+    color:#b8860b;
+    margin-bottom:16px;
+}
+
+/* GRID */
+.department-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+}
+
+/* CARD */
+.department-card{
+    background:#fff;
+    border-radius:14px;
+    padding:14px;
+    border-left:4px solid #d4a017;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    transition:0.2s;
+}
+
+.department-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 12px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+.dept-header{
+    display:flex;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+/* ICON */
+.dept-icon{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#c69214,#ffd54f);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+    margin-right:10px;
+    box-shadow:0 2px 6px rgba(212,160,23,0.25);
+}
+
+.dept-name{
+    font-size:16px;
+    font-weight:600;
+}
+
+/* FOLDER */
+.folder-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.folder-link{
+    text-decoration:none;
+    background:#fffaf0;
+    border:1px solid #f0dfb0;
+    color:#333;
+    padding:8px 10px;
+    border-radius:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    transition:0.2s;
+}
+
+.folder-link:hover{
+    background:#d4a017;
+    color:#fff;
+}
+
+.folder-type{
+    font-size:11px;
+    opacity:0.75;
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    padding:18px;
+    color:#8b7355;
+    font-size:12px;
+}
+
+@media(max-width:768px){
 
     .container{
-      padding:40px;
+        padding:10px 14px 20px;
     }
 
-    .section-title{
-      margin-bottom:25px;
-      font-size:24px;
-      font-weight:600;
-      color:#c40000;
-    }
+}
 
-    .department-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
-    }
-
-    .department-card{
-      background:white;
-      border-radius:18px;
-      padding:25px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.08);
-      transition:0.25s;
-      border-left:6px solid #d40000;
-    }
-
-    .department-card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .dept-header{
-      display:flex;
-      align-items:center;
-      margin-bottom:20px;
-    }
-
-    .dept-icon{
-      width:50px;
-      height:50px;
-      border-radius:12px;
-      background:#e60000;
-      color:white;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:bold;
-      font-size:18px;
-      margin-right:15px;
-    }
-
-    .dept-name{
-      font-size:22px;
-      font-weight:600;
-    }
-
-    .folder-list{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-
-    .folder-link{
-      text-decoration:none;
-      padding:14px 18px;
-      border-radius:12px;
-      background:#f5f5f5;
-      color:#333;
-      font-weight:500;
-      transition:0.2s;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .folder-link:hover{
-      background:#d40000;
-      color:white;
-    }
-
-    .folder-type{
-      font-size:13px;
-      opacity:0.8;
-    }
-
-    .footer{
-      text-align:center;
-      padding:25px;
-      color:#777;
-      font-size:14px;
-    }
-
-    @media(max-width:768px){
-      .container{
-        padding:20px;
-      }
-
-      .header{
-        padding:20px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="container">
+
+<div class="container">
 
     <div class="section-title">
-      Department Access
+        Department Access
     </div>
 
     <div class="department-grid">
 
-      <!-- FINANCE -->
-      <div class="department-card">
-        <div class="dept-header">
-          <div class="dept-icon">01</div>
-          <div class="dept-name">Finance</div>
+        <!-- FINANCE -->
+        <div class="department-card">
+
+            <div class="dept-header">
+
+                <div class="dept-icon">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                </div>
+
+                <div class="dept-name">
+                    Finance
+                </div>
+
+            </div>
+
+            <div class="folder-list">
+
+                <a class="folder-link"
+                href="https://baochung.sharepoint.com/sites/SP_FI/Shared%20Documents/Forms/AllItems.aspx"
+                target="_blank">
+
+                    <span>📁 Internal</span>
+                    <span class="folder-type">Staff</span>
+
+                </a>
+
+                <a class="folder-link"
+                href="https://baochung.sharepoint.com/sites/SP_FI/External/Forms/AllItems.aspx"
+                target="_blank">
+
+                    <span>🌐 External</span>
+                    <span class="folder-type">Vendor</span>
+
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="folder-list">
-          <a class="folder-link"
-             href="https://baochung.sharepoint.com/sites/SP_FI/Shared%20Documents/Forms/AllItems.aspx"
-             target="_blank">
-             📁 Internal
-             <span class="folder-type">Staff Only</span>
-          </a>
+        <!-- PRODUCTION -->
+        <div class="department-card">
 
-          <a class="folder-link"
-             href="https://baochung.sharepoint.com/sites/SP_FI/External/Forms/AllItems.aspx"
-             target="_blank">
-             🌐 External
-             <span class="folder-type">Customer / Vendor</span>
-          </a>
-        </div>
-      </div>
+            <div class="dept-header">
 
-      <!-- PRODUCTION -->
-      <div class="department-card">
-        <div class="dept-header">
-          <div class="dept-icon">02</div>
-          <div class="dept-name">Production</div>
-        </div>
+                <div class="dept-icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
 
-        <div class="folder-list">
-          <a class="folder-link"
-             href="https://baochung.sharepoint.com/sites/SP_PRO/Shared%20Documents/Forms/AllItems.aspx"
-             target="_blank">
-             📁 Internal
-             <span class="folder-type">Staff Only</span>
-          </a>
+                <div class="dept-name">
+                    Production
+                </div>
 
-          <a class="folder-link"
-             href="https://baochung.sharepoint.com/sites/SP_PRO/External/Forms/AllItems.aspx"
-             target="_blank">
-             🌐 External
-             <span class="folder-type">Customer / Vendor</span>
-          </a>
-        </div>
-      </div>
+            </div>
 
-      <!-- PLANNING -->
-      <div class="department-card">
-        <div class="dept-header">
-          <div class="dept-icon">03</div>
-          <div class="dept-name">Plating</div>
+            <div class="folder-list">
+
+                <a class="folder-link"
+                href="https://baochung.sharepoint.com/sites/SP_PRO/Shared%20Documents/Forms/AllItems.aspx"
+                target="_blank">
+
+                    <span>📁 Internal</span>
+                    <span class="folder-type">Staff</span>
+
+                </a>
+
+                <a class="folder-link"
+                href="https://baochung.sharepoint.com/sites/SP_PRO/External/Forms/AllItems.aspx"
+                target="_blank">
+
+                    <span>🌐 External</span>
+                    <span class="folder-type">Vendor</span>
+
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="folder-list">
-          <a class="folder-link"
-             href="https://baochung.sharepoint.com/sites/SP_PLA/Shared%20Documents/Forms/AllItems.aspx"
-             target="_blank">
-             📁 Internal
-             <span class="folder-type">Staff Only</span>
-          </a>
+        <!-- PLATING -->
+        <div class="department-card">
 
-          <a class="folder-link"
-             href="https://baochung.sharepoint.com/sites/SP_PLA/External/Forms/AllItems.aspx"
-             target="_blank">
-             🌐 External
-             <span class="folder-type">Customer / Vendor</span>
-          </a>
-        </div>
-      </div>
+            <div class="dept-header">
 
-      <!-- IT -->
-      <div class="department-card">
-        <div class="dept-header">
-          <div class="dept-icon">04</div>
-          <div class="dept-name">IT</div>
-        </div>
+                <div class="dept-icon">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
 
-        <div class="folder-list">
-          <a class="folder-link"
-             href="https://baochung.sharepoint.com/sites/ITTeam/Shared%20Documents/Forms/AllItems.aspx"
-             target="_blank">
-             📁 Internal
-             <span class="folder-type">Staff Only</span>
-          </a>
+                <div class="dept-name">
+                    Plating
+                </div>
 
-          <a class="folder-link"
-             href="https://baochung.sharepoint.com/sites/ITTeam/External/Forms/AllItems.aspx"
-             target="_blank">
-             🌐 External
-             <span class="folder-type">Customer / Vendor</span>
-          </a>
-        </div>
-      </div>
+            </div>
 
-      <!-- QC -->
-      <div class="department-card">
-        <div class="dept-header">
-          <div class="dept-icon">05</div>
-          <div class="dept-name">QC</div>
+            <div class="folder-list">
+
+                <a class="folder-link"
+                href="https://baochung.sharepoint.com/sites/SP_PLA/Shared%20Documents/Forms/AllItems.aspx"
+                target="_blank">
+
+                    <span>📁 Internal</span>
+                    <span class="folder-type">Staff</span>
+
+                </a>
+
+                <a class="folder-link"
+                href="https://baochung.sharepoint.com/sites/SP_PLA/External/Forms/AllItems.aspx"
+                target="_blank">
+
+                    <span>🌐 External</span>
+                    <span class="folder-type">Vendor</span>
+
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="folder-list">
-          <a class="folder-link"
-             href="https://baochung.sharepoint.com/sites/SP_QC/Shared%20Documents/Forms/AllItems.aspx"
-             target="_blank">
-             📁 Internal
-             <span class="folder-type">Staff Only</span>
-          </a>
+        <!-- IT -->
+        <div class="department-card">
 
-          <a class="folder-link"
-             href="https://baochung.sharepoint.com/sites/SP_QC/External/Forms/AllItems.aspx"
-             target="_blank">
-             🌐 External
-             <span class="folder-type">Customer / Vendor</span>
-          </a>
+            <div class="dept-header">
+
+                <div class="dept-icon">
+                    <i class="fa-solid fa-server"></i>
+                </div>
+
+                <div class="dept-name">
+                    IT
+                </div>
+
+            </div>
+
+            <div class="folder-list">
+
+                <a class="folder-link"
+                href="https://baochung.sharepoint.com/sites/ITTeam/Shared%20Documents/Forms/AllItems.aspx"
+                target="_blank">
+
+                    <span>📁 Internal</span>
+                    <span class="folder-type">Staff</span>
+
+                </a>
+
+                <a class="folder-link"
+                href="https://baochung.sharepoint.com/sites/ITTeam/External/Forms/AllItems.aspx"
+                target="_blank">
+
+                    <span>🌐 External</span>
+                    <span class="folder-type">Vendor</span>
+
+                </a>
+
+            </div>
+
         </div>
-      </div>
+
+        <!-- QC -->
+        <div class="department-card">
+
+            <div class="dept-header">
+
+                <div class="dept-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div class="dept-name">
+                    QC
+                </div>
+
+            </div>
+
+            <div class="folder-list">
+
+                <a class="folder-link"
+                href="https://baochung.sharepoint.com/sites/SP_QC/Shared%20Documents/Forms/AllItems.aspx"
+                target="_blank">
+
+                    <span>📁 Internal</span>
+                    <span class="folder-type">Staff</span>
+
+                </a>
+
+                <a class="folder-link"
+                href="https://baochung.sharepoint.com/sites/SP_QC/External/Forms/AllItems.aspx"
+                target="_blank">
+
+                    <span>🌐 External</span>
+                    <span class="folder-type">Vendor</span>
+
+                </a>
+
+            </div>
+
+        </div>
 
     </div>
-  </div>
 
-  <div class="footer">
-    © 2026 OVBC Company Portal | SharePoint Integrated
-  </div>
+</div>
+
+<div class="footer">
+    © 2026 OVBC Company Portal
+</div>
 
 </body>
 </html>
