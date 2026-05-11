@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>OVBC Company Portal</title>
 
@@ -12,6 +12,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <style>
 
+/* RESET */
 *{
     margin:0;
     padding:0;
@@ -19,111 +20,119 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     font-family:"Segoe UI",sans-serif;
 }
 
+/* AUTO SHAREPOINT FIT */
+html,
+body,
+#spPageCanvasContent,
+.CanvasComponent,
+.CanvasZone,
+.ControlZone,
+.spAppAndPropertyPanelContainer,
+[data-automation-id="CanvasZone"],
+[data-automation-id="CanvasSection"]{
+    background:transparent !important;
+    min-height:auto !important;
+    height:auto !important;
+    overflow:visible !important;
+}
+
 /* PAGE */
 body{
-    background:#f3f2ef;
-    color:#333;
-}
-
-/* REMOVE SHAREPOINT EMPTY SPACE */
-html,
-body{
-    height:auto !important;
-    min-height:auto !important;
-}
-
-/* WRAPPER */
-.main-wrapper{
-    width:100%;
     display:flex;
     justify-content:center;
+    padding:10px;
 }
 
-/* MAIN CONTENT */
-.container{
-    width:auto;
-    min-width:720px;
-    background:#faf8f2;
-    padding:12px 14px 10px;
-    display:inline-block;
+/* MAIN */
+.portal-container{
+    width:100%;
+    max-width:1100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
 /* TITLE */
-.section-title{
-    text-align:center;
-    font-size:20px;
+.portal-title{
+    font-size:34px;
     font-weight:700;
     color:#b8860b;
-    margin-bottom:14px;
-    letter-spacing:0.3px;
+    margin-bottom:22px;
+    text-align:center;
+    letter-spacing:0.5px;
 }
 
 /* GRID */
 .department-grid{
+    width:100%;
     display:grid;
-    grid-template-columns:repeat(5, 1fr);
-    gap:10px;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:14px;
 }
 
 /* CARD */
 .department-card{
     background:#fff;
-    border-radius:12px;
-    padding:10px;
-    border-left:3px solid #d4a017;
-    box-shadow:0 1px 6px rgba(0,0,0,0.05);
-    transition:0.2s;
+    border-radius:16px;
+    padding:14px;
+    border-left:4px solid #d4a017;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    transition:0.2s ease;
 }
 
 .department-card:hover{
-    transform:translateY(-2px);
+    transform:translateY(-3px);
+    box-shadow:0 6px 16px rgba(0,0,0,0.10);
 }
 
 /* HEADER */
 .dept-header{
     display:flex;
     align-items:center;
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 /* ICON */
 .dept-icon{
-    width:32px;
-    height:32px;
-    border-radius:8px;
+    width:42px;
+    height:42px;
+    border-radius:12px;
     background:linear-gradient(135deg,#c69214,#ffd54f);
     color:#fff;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:13px;
-    margin-right:8px;
-    box-shadow:0 2px 6px rgba(212,160,23,0.25);
+    font-size:16px;
+    margin-right:10px;
+    box-shadow:0 2px 8px rgba(212,160,23,0.25);
 }
 
+/* NAME */
 .dept-name{
-    font-size:13px;
+    font-size:17px;
     font-weight:600;
+    color:#333;
 }
 
-/* FOLDER */
+/* FOLDER LIST */
 .folder-list{
     display:flex;
     flex-direction:column;
-    gap:6px;
+    gap:8px;
 }
 
+/* BUTTON */
 .folder-link{
     text-decoration:none;
     background:#fffaf0;
     border:1px solid #f0dfb0;
     color:#333;
-    padding:6px 8px;
-    border-radius:8px;
+    padding:8px 10px;
+    border-radius:10px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    font-size:11px;
+    font-size:13px;
     transition:0.2s;
 }
 
@@ -132,39 +141,29 @@ body{
     color:#fff;
 }
 
+/* TYPE */
 .folder-type{
-    font-size:9px;
+    font-size:11px;
     opacity:0.75;
 }
 
 /* FOOTER */
 .footer{
-    text-align:center;
-    padding-top:12px;
-    font-size:10px;
+    margin-top:18px;
+    font-size:12px;
     color:#8b7355;
+    text-align:center;
 }
 
-/* SHAREPOINT FIX */
-div[data-automation-id="CanvasZone"]{
-    min-height:auto !important;
-    height:auto !important;
-}
+/* MOBILE */
+@media(max-width:768px){
 
-.CanvasComponent.LCS .CanvasZone{
-    padding-bottom:0 !important;
-    margin-bottom:0 !important;
-}
-
-@media(max-width:900px){
-
-    .department-grid{
-        grid-template-columns:repeat(2, 1fr);
+    .portal-title{
+        font-size:26px;
     }
 
-    .container{
-        min-width:auto;
-        width:100%;
+    .department-grid{
+        grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
     }
 
 }
@@ -174,21 +173,21 @@ div[data-automation-id="CanvasZone"]{
 
 <body>
 
-<div class="main-wrapper">
+<div class="portal-container">
 
-<div class="container">
-<div class="section-title"
+    <!-- TITLE -->
+ <div class="portal-title"
      style="
         text-align:center;
-        font-size:22px;
-        font-weight:700;
-        color:#b8860b;
-        margin-bottom:18px;
-        letter-spacing:0.5px;
+        width:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
      ">
     Company File Portal
 </div>
 
+    <!-- GRID -->
     <div class="department-grid">
 
         <!-- FINANCE -->
@@ -209,8 +208,8 @@ div[data-automation-id="CanvasZone"]{
             <div class="folder-list">
 
                 <a class="folder-link"
-                href="https://baochung.sharepoint.com/sites/SP_FI/Shared%20Documents/Forms/AllItems.aspx"
-                target="_blank">
+                   href="https://baochung.sharepoint.com/sites/SP_FI/Shared%20Documents/Forms/AllItems.aspx"
+                   target="_blank">
 
                     <span>📁 Internal</span>
                     <span class="folder-type">Staff</span>
@@ -218,8 +217,8 @@ div[data-automation-id="CanvasZone"]{
                 </a>
 
                 <a class="folder-link"
-                href="https://baochung.sharepoint.com/sites/SP_FI/External/Forms/AllItems.aspx"
-                target="_blank">
+                   href="https://baochung.sharepoint.com/sites/SP_FI/External/Forms/AllItems.aspx"
+                   target="_blank">
 
                     <span>🌐 External</span>
                     <span class="folder-type">Vendor</span>
@@ -248,8 +247,8 @@ div[data-automation-id="CanvasZone"]{
             <div class="folder-list">
 
                 <a class="folder-link"
-                href="https://baochung.sharepoint.com/sites/SP_PRO/Shared%20Documents/Forms/AllItems.aspx"
-                target="_blank">
+                   href="https://baochung.sharepoint.com/sites/SP_PRO/Shared%20Documents/Forms/AllItems.aspx"
+                   target="_blank">
 
                     <span>📁 Internal</span>
                     <span class="folder-type">Staff</span>
@@ -257,8 +256,8 @@ div[data-automation-id="CanvasZone"]{
                 </a>
 
                 <a class="folder-link"
-                href="https://baochung.sharepoint.com/sites/SP_PRO/External/Forms/AllItems.aspx"
-                target="_blank">
+                   href="https://baochung.sharepoint.com/sites/SP_PRO/External/Forms/AllItems.aspx"
+                   target="_blank">
 
                     <span>🌐 External</span>
                     <span class="folder-type">Vendor</span>
@@ -287,8 +286,8 @@ div[data-automation-id="CanvasZone"]{
             <div class="folder-list">
 
                 <a class="folder-link"
-                href="https://baochung.sharepoint.com/sites/SP_PLA/Shared%20Documents/Forms/AllItems.aspx"
-                target="_blank">
+                   href="https://baochung.sharepoint.com/sites/SP_PLA/Shared%20Documents/Forms/AllItems.aspx"
+                   target="_blank">
 
                     <span>📁 Internal</span>
                     <span class="folder-type">Staff</span>
@@ -296,8 +295,8 @@ div[data-automation-id="CanvasZone"]{
                 </a>
 
                 <a class="folder-link"
-                href="https://baochung.sharepoint.com/sites/SP_PLA/External/Forms/AllItems.aspx"
-                target="_blank">
+                   href="https://baochung.sharepoint.com/sites/SP_PLA/External/Forms/AllItems.aspx"
+                   target="_blank">
 
                     <span>🌐 External</span>
                     <span class="folder-type">Vendor</span>
@@ -326,8 +325,8 @@ div[data-automation-id="CanvasZone"]{
             <div class="folder-list">
 
                 <a class="folder-link"
-                href="https://baochung.sharepoint.com/sites/ITTeam/Shared%20Documents/Forms/AllItems.aspx"
-                target="_blank">
+                   href="https://baochung.sharepoint.com/sites/ITTeam/Shared%20Documents/Forms/AllItems.aspx"
+                   target="_blank">
 
                     <span>📁 Internal</span>
                     <span class="folder-type">Staff</span>
@@ -335,8 +334,8 @@ div[data-automation-id="CanvasZone"]{
                 </a>
 
                 <a class="folder-link"
-                href="https://baochung.sharepoint.com/sites/ITTeam/External/Forms/AllItems.aspx"
-                target="_blank">
+                   href="https://baochung.sharepoint.com/sites/ITTeam/External/Forms/AllItems.aspx"
+                   target="_blank">
 
                     <span>🌐 External</span>
                     <span class="folder-type">Vendor</span>
@@ -365,8 +364,8 @@ div[data-automation-id="CanvasZone"]{
             <div class="folder-list">
 
                 <a class="folder-link"
-                href="https://baochung.sharepoint.com/sites/SP_QC/Shared%20Documents/Forms/AllItems.aspx"
-                target="_blank">
+                   href="https://baochung.sharepoint.com/sites/SP_QC/Shared%20Documents/Forms/AllItems.aspx"
+                   target="_blank">
 
                     <span>📁 Internal</span>
                     <span class="folder-type">Staff</span>
@@ -374,8 +373,8 @@ div[data-automation-id="CanvasZone"]{
                 </a>
 
                 <a class="folder-link"
-                href="https://baochung.sharepoint.com/sites/SP_QC/External/Forms/AllItems.aspx"
-                target="_blank">
+                   href="https://baochung.sharepoint.com/sites/SP_QC/External/Forms/AllItems.aspx"
+                   target="_blank">
 
                     <span>🌐 External</span>
                     <span class="folder-type">Vendor</span>
@@ -388,11 +387,10 @@ div[data-automation-id="CanvasZone"]{
 
     </div>
 
+    <!-- FOOTER -->
     <div class="footer">
         © 2026 OVBC Company Portal
     </div>
-
-</div>
 
 </div>
 
